@@ -14,6 +14,7 @@ def main():
     player = p.Player("Courtney")
     game = g.Game(player)
 
+    print
     print "Welcome to Courtney's Pyngo - Bingo in Python."
     choice = game.menu()
 

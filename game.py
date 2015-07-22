@@ -12,6 +12,6 @@ class Game:
             print "2 - Statistics"
             print "3 - Exit"
             print "-" * 80
-            choice = input()
+            choice = input("Your selection: ")
 
         return choice
