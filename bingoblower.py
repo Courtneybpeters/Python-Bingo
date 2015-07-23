@@ -1,6 +1,7 @@
 import random
 
 class BingoBlower:
+    # TODO: I have multiple bingo = 'bingo' assignments. Fix?
     bingo = 'bingo'
     selected = {}
 
@@ -8,4 +9,5 @@ class BingoBlower:
         pass
 
     def get_ball(self):
-        pass
+        column = self.bingo[random.randrange(len(self.bingo))]
+        print column.upper()

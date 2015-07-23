@@ -22,7 +22,14 @@ def main():
         card = bc.BingoCard()
         card.draw_bingocard()
     elif choice == 2:
-        print "To do"
+        # I'm letting player handle everything
+        # Would I want average so I can send it to other classes possibly?
+        p.calculate_average
+
+    # Get ball and then have timed input
+    blower = bb.BingoBlower()
+    blower.get_ball()
+
 
 if __name__ == "__main__":
     main()

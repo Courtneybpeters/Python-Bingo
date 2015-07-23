@@ -1,8 +1,8 @@
 class Player:
 
-    play = True
-    wins = 0
-    losses = 0
+    __play = True
+    __wins = 0
+    __losses = 0
 
 
     def __init__(self, name=None):
@@ -11,4 +11,5 @@ class Player:
 
     def calculate_average(self):
         average = wins / losses
-        return average
+        print
+        print "Winning Percentage: " + str(average) + "%"
