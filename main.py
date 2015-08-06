@@ -4,15 +4,8 @@ from bingocard import BingoCard
 from bingoblower import BingoBlower
 import pygame, sys
 from pygame.locals import *
+from eztext import Input
 
-
-"""
-BINGO:
-  - Bingo Card class (card with the random numbers)
-  - Bingo Blower class (machine that generates numbers)
-  - Player class (track wins/losses and dabs)
-
-"""
 def main():
     # TODO: Should I put the main loop in game as well?
     pygame.init()
@@ -39,15 +32,19 @@ def main():
 
     state = 'start'
 
+    # Restricted text input for number of cards
+    numeric = ['\'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\\\'()*+,-./:;<=>?@[\]^_`{|}~\'']
+
     while True:
         if state == 'start':
             screen.fill(game.bg_color)
-            title_rect = game.text(title, big_font, y=-40)
-            new_rect = game.text(new_msg, sm_font, y=50, True)
+            game.text(title, big_font, y=-40)
+            game.text(new_msg, sm_font, y=50, button=True)
 
         elif state == 'in game':
             screen.fill(game.bg_color)
-            
+
+
 
 
 
@@ -61,10 +58,18 @@ def main():
             elif event.type == MOUSEBUTTONDOWN:
                 click = event.pos
                 selection = game.clicked(click)
-                if selection == title:
-                    print "Title clicked"
-                elif selection == new_msg:
-                    state = 'in game'
+                if selection == new_msg:
+                    card_txtbx = Input(x=center[0],
+                                       y=center[1] + 100,
+                                       font=sm_font,
+                                       color=game.font_color,
+                                       maxlength=2,
+                                       prompt="Number of cards: ")
+                    num_of_cards = int(raw_input())
+                    print "Number of cards selected: ", num_of_cards
+
+
+
 
 
         pygame.display.update()
